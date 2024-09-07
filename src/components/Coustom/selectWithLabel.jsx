@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import {
   Select,
   SelectContent,
@@ -11,7 +9,7 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 
-function SelectWithLabel({
+export default function SelectWithLabel({
   label,
   icon,
   options,
@@ -45,5 +43,3 @@ function SelectWithLabel({
     </div>
   );
 }
-
-export default SelectWithLabel;

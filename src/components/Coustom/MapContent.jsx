@@ -30,7 +30,7 @@ function MapUpdater({ center, zoom }) {
   return null;
 }
 
-function MapContent({ center = [51.505, -0.09], zoom = 13, children }) {
+export default function MapContent({ center = [51.505, -0.09], zoom = 13, children }) {
   const mapRef = useRef(null);
 
   useEffect(() => {
@@ -53,4 +53,3 @@ function MapContent({ center = [51.505, -0.09], zoom = 13, children }) {
   );
 }
 
-export default MapContent;

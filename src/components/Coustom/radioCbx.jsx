@@ -1,4 +1,4 @@
-function RadioCombobox({
+export default function RadioCombobox({
   value,
   onChange,
   checked,
@@ -37,4 +37,3 @@ function RadioCombobox({
   );
 }
 
-export default RadioCombobox;

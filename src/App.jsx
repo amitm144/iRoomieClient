@@ -105,7 +105,8 @@ function App() {
     const checkCurrentUser = async () => {
       try {
         // const userData = await auth.testRoommate();
-        const userData = await auth.testApartment();
+        // const userData = await auth.testApartment();
+        const userData = await auth.currentUser();
 
         setUser(userData);
       } catch (error) {

@@ -4,7 +4,7 @@ import ComboboxWithLabel from "./comboboxWithLabel";
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 import { fetchLocations } from "@/lib/LocationService";
 
-function LocationCombobox({
+export default function LocationCombobox({
     onChange,
   label = "Address",
   placeholder = "Enter an address",
@@ -62,4 +62,3 @@ function LocationCombobox({
   );
 }
 
-export default LocationCombobox;

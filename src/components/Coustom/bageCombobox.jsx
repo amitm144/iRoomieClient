@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const SELECTION_LIMIT = 5;
 
-function CategorizedBadgeSelect({
+export default function CategorizedBadgeSelect({
   id,
   label,
   icon,
@@ -138,5 +138,3 @@ function CategorizedBadgeSelect({
     </div>
   );
 }
-
-export default CategorizedBadgeSelect;

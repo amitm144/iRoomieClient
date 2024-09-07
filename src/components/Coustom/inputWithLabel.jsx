@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-function InputWithLabel({ id, label, icon, placeholder, type ,  ...props }) {
+export default function InputWithLabel({ id, label, icon, placeholder, type ,  ...props }) {
   return (
     <div className="grid w-full items-center gap-1.5">
       <div className="flex gap-2 items-center">
@@ -12,5 +12,3 @@ function InputWithLabel({ id, label, icon, placeholder, type ,  ...props }) {
     </div>
   );
 }
-
-export default InputWithLabel;

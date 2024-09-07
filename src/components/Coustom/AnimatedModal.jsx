@@ -7,7 +7,6 @@ import {
   ModalTrigger,
   useModal,
 } from "@/components/ui/animated-modal";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import ChairOutlinedIcon from "@mui/icons-material/ChairOutlined";
 
 function ModalContents({ label, children }) {

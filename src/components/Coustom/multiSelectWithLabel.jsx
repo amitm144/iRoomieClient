@@ -2,7 +2,7 @@ import React from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
-function MultiSelectWithLabel({ label, icon, options, value, onChange, section, ...props }) {
+export default function MultiSelectWithLabel({ label, icon, options, value, onChange, section, ...props }) {
   const handleToggle = (option) => {
     onChange(section, option, !value[option]);
   };
@@ -34,4 +34,3 @@ function MultiSelectWithLabel({ label, icon, options, value, onChange, section, 
   );
 }
 
-export default MultiSelectWithLabel;

@@ -8,21 +8,9 @@ export default function Authentication() {
   const { mutate } = useMutation({
     mutationFn: auth.initiateGoogleAuth,
   });
-  const roommateSignIn = useMutation({
-    mutationFn: auth.testRoommate,
-  });
-  const apartmentSignIn = useMutation({
-    mutationFn: auth.testApartment,
-  });
 
   const handleGoogleSignIn = () => {
     mutate();
-  };
-  const handleRoommateSignIn = () => {
-    roommateSignIn.mutate();
-  };
-  const handleApartmentSignIn = () => {
-    apartmentSignIn.mutate();
   };
 
   return (
@@ -30,9 +18,9 @@ export default function Authentication() {
       <div className="flex items-center justify-center py-12">
         <div className="mx-auto grid w-[350px] gap-6">
           <div className="grid gap-2 text-center">
-            <h1 className="text-3xl font-bold">Create an Account</h1>
+            <h1 className="text-3xl font-bold">Login/Signup to your Account</h1>
             <p className="text-balance text-muted-foreground">
-              Enter your details below to create your account
+              Enter your google details for quick access and authentication
             </p>
           </div>
 
@@ -44,22 +32,7 @@ export default function Authentication() {
             <GoogleIcon className="mr-2" />
             Continue Google
           </Button>
-          <Button
-            type="button"
-            onClick={handleRoommateSignIn}
-            className="w-full bg-blue-500 text-white grid grid-cols-3 hover:bg-red-400 hover:shadow-md"
-          >
-            <GoogleIcon className="mr-2" />
-            Login Roommate Test
-          </Button>
-          <Button
-            type="button"
-            onClick={handleApartmentSignIn}
-            className="w-full bg-purple-500 text-white grid grid-cols-3 hover:bg-red-400 hover:shadow-md"
-          >
-            <GoogleIcon className="mr-2" />
-            Login Apartment Test
-          </Button>
+          
         </div>
       </div>
       <div className="hidden bg-muted lg:flex lg:flex-col lg:justify-center lg:items-center relative overflow-hidden">

@@ -3,7 +3,6 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -14,7 +13,6 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
-
 
 export default function ImageGallery({ images }) {
   const [selectedImage, setSelectedImage] = useState(0);

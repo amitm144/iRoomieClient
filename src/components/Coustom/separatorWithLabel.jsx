@@ -1,7 +1,6 @@
 import { Separator } from "../ui/separator";
 
-
-function SeparatorWithLabel({ label }) {
+export default function SeparatorWithLabel({ label }) {
   return (
     <div className="flex flex-col gap-4 mb-4 col-span-2 " >
       <Separator  />
@@ -9,5 +8,3 @@ function SeparatorWithLabel({ label }) {
     </div>
   );
 }
-
-export default SeparatorWithLabel;

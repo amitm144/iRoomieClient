@@ -95,7 +95,7 @@ const MyQuestionnaireSummaryCard = ({ myAnswers, score }) => {
   );
 };
 
-function AnswersDrawer({ name, myAnswers, otherAnswers, score, myProfile }) {
+export default function AnswersDrawer({ name, myAnswers, otherAnswers, score, myProfile }) {
   return (
     <div>
       <GenericDrawer
@@ -127,5 +127,3 @@ function AnswersDrawer({ name, myAnswers, otherAnswers, score, myProfile }) {
     </div>
   );
 }
-
-export default AnswersDrawer;

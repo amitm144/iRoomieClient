@@ -9,7 +9,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-function ComboboxWithLabel({
+export default function ComboboxWithLabel({
   id,
   label,
   icon,
@@ -117,5 +117,3 @@ function ComboboxWithLabel({
     </div>
   );
 }
-
-export default ComboboxWithLabel;

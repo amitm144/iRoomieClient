@@ -58,6 +58,9 @@ export const users = {
     return apiCall(`/users/action/${id}/?action=${action}`, "PUT");
   },
 };
+
+
+
 // User functions
 export const roommates = {
   getAll: () => apiCall(`/roommates`),
