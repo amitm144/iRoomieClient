@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import RadioCombobox from "@/components/Coustom/radioCbx";
 import { UsersRound , Building} from "lucide-react";
 
-
 const UserTypeForm = ({ onSubmit }) => {
   const [userType, setUserType] = useState("");
 
@@ -47,7 +46,6 @@ const UserTypeForm = ({ onSubmit }) => {
             icon={<Building className="lg:h-48 h-16 lg:w-48 w-16 "/>}
           />
         </div>
-
         <button
           className="px-8 py-4 w-40 mx-auto bg-black text-white text-sm rounded-md font-semibold hover:bg-black/[0.8] hover:shadow-lg"
           type="submit"

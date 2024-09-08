@@ -1,16 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import {
   User,
   Briefcase,
   GraduationCap,
-  MapPin,
   Music,
   Film,
   Gamepad2,
   Instagram,
   Facebook,
 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -27,7 +25,6 @@ import LocationCombobox from "@/components/Coustom/locationCombobox";
 import CategorizedBadgeSelect from "@/components/Coustom/bageCombobox";
 import TextareaWithLabel from "@/components/Coustom/textareaWithLabel";
 import ProfilePictureUpload from "@/components/Coustom/ProfilePictureUpload";
-
 import {
   hobbiesList,
   occupationList,

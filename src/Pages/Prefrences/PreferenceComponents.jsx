@@ -9,14 +9,13 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { format } from "date-fns";
 import { MapPin, CalendarIcon } from "lucide-react";
 import MapContent from "@/components/Coustom/MapContent";
 import { Marker, Circle } from "react-leaflet";
 import LocationCombobox from "@/components/Coustom/locationCombobox";
 import { cn } from "@/lib/utils";
-
 
 export const RangeSlider = ({
   label,
@@ -103,7 +102,6 @@ export const PreferenceSlider = ({
   value,
   onChange,
   isMin,
-
   min,
   max,
   step,
@@ -132,57 +130,6 @@ export const PreferenceSlider = ({
     </div>
   </div>
 );
-
-// export const MultiSelect = ({
-//   label,
-//   options,
-//   selected,
-//   single = false,
-//   onChange,
-// }) => {
-//   // console.log("selected value", selected.value.includes("Male"))
-//   // console.log("options", options)
-
-//   return <div className="flex flex-col gap-2">
-//     <Label>{label}</Label>
-//     <div className="flex flex-wrap gap-2">
-//       {options.map((option) => {
-//         console.log("option", option.value)
-//         console.log("option", selected.value)
-//         console.log("option", selected.value.includes(option.value))
-//         return (
-//         <Badge
-//           key={option.value}
-//           variant={selected.value.includes(option.value) ? "secondary" : "outline"}
-//           className={cn(
-//             "cursor-pointer text-blue-900 hover:bg-neutral-100",
-//             selected.value.includes(option.value)
-//               ? "bg-blue-50 text-blue-900"
-//               : "border-blue-500"
-//           )}
-//           onClick={() => {
-//             if (single) {
-//               // For single selection, just replace the entire selection
-//               onChange([option.value]);
-//             } else {
-//               // For multiple selection, toggle the selected item
-//               const newSelected = selected.includes(option.value)
-//                 ? selected.filter((item) => item !== option.value)
-//                 : [...selected, option.value];
-//               onChange(newSelected);
-//             }
-//           }}
-//         >
-//           {option.icon && <option.icon className="h-4 w-4 mr-1" />}
-//           {option.label}
-//         </Badge>
-//       )}
-
-//       )}
-//     </div>
-//   </div>
-
-//     };
 
 export const AddressPreference = ({
   address,

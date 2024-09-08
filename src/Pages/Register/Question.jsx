@@ -2,14 +2,7 @@ import React, { useState, useEffect } from "react";
 import RadioCombobox from "@/components/Coustom/radioCbx";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
-
-const importanceMap = [
-  "Not a Priority",
-  "Low Priority",
-  "Moderate Priority",
-  "High Priority",
-  "Top Priority",
-];
+import { importanceMap } from "@/lib/registrationUtils";
 
 const Question = ({ question, onAnswer, currentAnswer }) => {
   const [value, setValue] = useState(currentAnswer?.value ?? null);

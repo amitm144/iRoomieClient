@@ -1,12 +1,13 @@
-import { useContext, useState, useCallback, useMemo } from "react";
+import { useContext, useState, useMemo } from "react";
 import { UserContext } from "@/App";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { users } from "@/lib/http";
 import ApartmentPreviewCard from "./apartmentPreviewCard";
 import RoommatePreviewCard from "./roommatePreviewCard";
 import SortDropDown from "@/components/Coustom/rdDrop";
 
 export default function CardsList() {
+  const queryClient = useQueryClient();
   const { user } = useContext(UserContext);
   const [sortConfig, setSortConfig] = useState({ option: "score", order: "desc" });  
   const myAnswers = user.profile.questionnaire;
@@ -20,11 +21,18 @@ export default function CardsList() {
 
   const actionMutation = useMutation({
     mutationFn: users.action, 
-    onSuccess: () => refetch()
+    onSuccess: (responseData, variables) => {
+      queryClient.setQueryData(['suggestions'], (oldData) => {
+        if (oldData) {
+          return oldData.filter(item => item.apartment._id !== responseData.removedId);
+        }
+        return oldData;
+      });
+    }
   });
 
   const handleAction = (id, action) => {
-    actionMutation.mutate({id, action})
+    actionMutation.mutate({id, action});
   };
 
   const sortedData = useMemo(() => {
@@ -36,7 +44,6 @@ export default function CardsList() {
 
       let comparison;
       if (sortConfig.option === 'date') {
-        // Convert dates to timestamps for comparison
         const aDate = new Date(aValue).getTime();
         const bDate = new Date(bValue).getTime();
         comparison = aDate - bDate;
@@ -64,7 +71,7 @@ export default function CardsList() {
       </div>
       <main className="flex flex-col gap-8 lg:container">
         {sortedData.map((item, index) => (
-          <CardComponent key={index} data={item} myAnswers={myAnswers} onAction={handleAction} />
+          <CardComponent key={item.apartment._id} data={item} myAnswers={myAnswers} onAction={handleAction} />
         ))}
       </main>
     </>

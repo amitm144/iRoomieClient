@@ -1,83 +1,60 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/App";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Loader, Check } from "lucide-react";
-import RoommatePreferences from "./RoommatePreferences";
-import ApartmentPreferences from "./ApartmentPreferences";
-import { useMutation } from "@tanstack/react-query";
-import { users } from "@/lib/http";
-
-const initialPreferences = {
-  roommate: {
-    overview: {
-      rentRange: 10000,
-      bedrooms: 1,
-      bathrooms: 1,
-      minSize: 20,
-    },
-    details: {
-      AC: true,
-      Parking: true,
-      Balcony: true,
-      Furnished: true,
-      Elevator: true,
-      "Pet Friendly": true,
-      "Smoking Allowed": true,
-    },
-    leaseDuration: {
-      moveInDateStart: new Date().getTime(),
-    },
-    location: {
-      address: {
-        street: undefined,
-        city: undefined,
-        coordinates: [],
-      },
-      radius: 1000,
-    },
-  },
-  apartment: {
-    ageRange: [18, 60],
-    gender: [],
-    occupations: [],
-    sharedInterests: [],
-  },
-};
+import RoommatePreferences from "./roommatePreferences";
+import ApartmentPreferences from "./apartmentPreferences";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { users, auth } from "@/lib/http";
+import { initialPreferences } from "@/lib/preferencesUtils";
 
 export default function PreferencesPage() {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const userType = user.user.userType;
+  const queryClient = useQueryClient();
+
+  const { data: userData, refetch } = useQuery({
+    queryKey: ['user'],
+    queryFn: auth.currentUser,
+    initialData: user,
+  });
 
   const [preferences, setPreferences] = useState({
     ...initialPreferences[userType],
     ...user.profile.preferences,
-    
   });
-  console.log(initialPreferences[userType]);
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+
+  useEffect(() => {
+    if (userData) {
+      setPreferences({
+        ...initialPreferences[userType],
+        ...userData.profile.preferences,
+      });
+    }
+  }, [userData, userType]);
 
   const mutation = useMutation({
     mutationFn: users.preferences,
     onSuccess: (data) => {
-      console.log("Preferences were updated successfully:", data);
+      console.log("Preferences were updated successfully:", data[userType]);
+      setUser((prev) => ({
+        ...prev,
+        profile: {
+          ...prev.profile,
+          preferences: data[userType].preferences,
+        },
+      }));
+      queryClient.invalidateQueries(['user']);
     },
     onError: (error) => {
       console.error("Preferences update error:", error);
     },
   });
-
-  const removeEnabledProperty = (obj) => {
-    const newObj = { ...obj };
-    delete newObj.enabled;
-
-    for (let key in newObj) {
-      if (typeof newObj[key] === "object" && newObj[key] !== null) {
-        newObj[key] = removeEnabledProperty(newObj[key]);
-      }
-    }
-
-    return newObj;
-  };
 
   const handleSave = async () => {
     let preferencesToSave = Object.entries(preferences);
@@ -157,3 +134,4 @@ export default function PreferencesPage() {
     </div>
   );
 }
+

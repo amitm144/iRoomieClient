@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import IroomieLogo from "@/components/Coustom/MyLogo";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 // Utility function (replace with your actual implementation)
 const cn = (...classes) => classes.filter(Boolean).join(" ");
@@ -80,36 +82,20 @@ export const MobileSidebar = ({ className, children, ...props }) => {
         {...props}
       >
         <div className="flex justify-between items-center z-20 w-full ">
-          <IroomieLogo logo={false}  />
-          {open && <IconX onClick={() => setOpen(!open)} />}
-          {!open && <IconMenu2 onClick={() => setOpen(!open)} />}
-
+          <IroomieLogo logo={false} />
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                {open ? <IconX /> : <IconMenu2 />}
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+              <div className="flex flex-col justify-between h-full py-6">
+                {children}
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-100%", opacity: 0 }}
-              transition={{
-                duration: 0.3,
-                ease: "easeInOut",
-              }}
-              className={cn(
-                "fixed h-full w-fit inset-0 bg-white dark:bg-neutral-900 p-10 z-[100] flex flex-col justify-between",
-                className
-              )}
-            >
-              {/* <div
-                className="absolute right-16 top-10 z-50 text-neutral-800 dark:text-neutral-200"
-                onClick={() => setOpen(!open)}
-              >
-                
-              </div> */}
-              {children}
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </>
   );
@@ -121,7 +107,7 @@ export const SidebarLink = ({ link, className, ...props }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    setOpen(!open);
+    setOpen(false);
     navigate(link.href);
   };
 
@@ -136,15 +122,9 @@ export const SidebarLink = ({ link, className, ...props }) => {
       {...props}
     >
       {link.icon}
-      <motion.span
-        animate={{
-          display: animate ? (open ? "inline-block" : "none") : "inline-block",
-          opacity: animate ? (open ? 1 : 0) : 1,
-        }}
-        className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
-      >
+      <span className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre">
         {link.label}
-      </motion.span>
+      </span>
     </a>
   );
 };

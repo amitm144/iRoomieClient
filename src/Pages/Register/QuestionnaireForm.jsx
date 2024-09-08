@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { questionsArray as questions } from "@/lib/register"; //questionsTest as questions
-import Question from "./Question";
+import Question from "./question";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
 function QuestionnaireForm({ initialData ={}, onSubmit }) {

@@ -1,39 +1,7 @@
-
-import {
-  RangeSlider,
-  MultiSelect,
-
-} from "./PreferenceComponents";
-import {
-  Users,
-  Briefcase,
-  Music,
-  Film,
-  Gamepad2,
-  GraduationCap,
-  Clock,
-  Laptop,
-  Shield,
-  Book,
-  Utensils,
-} from "lucide-react";
+import { RangeSlider, MultiSelect } from "./PreferenceComponents";
+import { Users } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-
-const occupationOptions = [
-  { value: "Soldier", label: "Soldier", icon: Shield },
-  { value: "Student", label: "Student", icon: GraduationCap },
-  { value: "Part-Time", label: "Part-Time Worker", icon: Clock },
-  { value: "Full-Time", label: "Full-Time Employee", icon: Briefcase },
-  { value: "Freelancer", label: "Freelancer", icon: Laptop },
-];
-
-const interestOptions = [
-  { value: "Music", label: "Music", icon: Music },
-  { value: "Movies", label: "Movies", icon: Film },
-  { value: "Sports", label: "Sports", icon: Gamepad2 },
-  { value: "Reading", label: "Reading", icon: Book },
-  { value: "Cooking", label: "Cooking", icon: Utensils },
-];
+import { interestOptions, occupationOptions } from "@/lib/preferencesUtils";
 
 export default function ApartmentPreferences({ preferences, setPreferences }) {
   const updatePreference = (key, newValue) => {

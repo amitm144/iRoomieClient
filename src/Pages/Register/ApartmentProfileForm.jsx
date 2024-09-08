@@ -26,46 +26,11 @@ import {
   Tv,
   ShieldCheck,
   ScrollText,
-  Cigarette,
-  Sofa,
-  SunSnow,
-  SquareParking,
-  Leaf,
-  Building2,
-  Dog,
 } from "lucide-react";
 import LocationCombobox from "@/components/Coustom/locationCombobox";
 import ImageUploadGrid from "@/components/Coustom/ImageUploadGrid";
 import RadioCombobox from "@/components/Coustom/radioCbx";
-const detailOptions = [
-  { field: "AC", label: "AC", icon: <SunSnow className="h-10 w-10" /> },
-  {
-    field: "Parking",
-    label: "Parking",
-    icon: <SquareParking className="h-10 w-10" />,
-  },
-  { field: "Balcony", label: "Balcony", icon: <Leaf className="h-10 w-10" /> },
-  {
-    field: "Furnished",
-    label: "Furnished",
-    icon: <Sofa className="h-10 w-10" />,
-  },
-  {
-    field: "Elevator",
-    label: "Elevator",
-    icon: <Building2 className="h-10 w-10" />,
-  },
-  {
-    field: "Pet Friendly",
-    label: "Pet Friendly",
-    icon: <Dog className="h-10 w-10" />,
-  },
-  {
-    field: "Smoking Allowed",
-    label: "Smoking Allowed",
-    icon: <Cigarette className="h-10 w-10" />,
-  },
-];
+import { detailOptions } from "@/lib/registrationUtils";
 
 const formatDate = (dateString) => {
   if (!dateString) return "";

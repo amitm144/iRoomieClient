@@ -9,28 +9,12 @@ import {
   Bed,
   Bath,
   DollarSign,
-  CalendarIcon,
-  AirVent,
-  ArrowUpDown,
-  Dog,
-  Cigarette,
-  Sofa,
-  Car,
   Ruler,
 } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
-
-const iconMap = {
-  AC: AirVent,
-  Parking: Car,
-  Balcony: ArrowUpDown,
-  Furnished: Sofa,
-  Elevator: ArrowUpDown,
-  "Pet Friendly": Dog,
-  "Smoking Allowed": Cigarette,
-};
+import { iconMapRoommatePreferences as iconMap } from "@/lib/preferencesUtils";
 
 export default function RoommatePreferences({
   preferences,
@@ -76,7 +60,7 @@ export default function RoommatePreferences({
                 updatePreference("overview.rentRange", newValue)
               }
               min={1000}
-              max={10000}
+              max={30000}
               step={100}
               icon={DollarSign}
             />

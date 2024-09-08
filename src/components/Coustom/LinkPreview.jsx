@@ -9,7 +9,6 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils"
 
-// Replace Next.js Image component with a custom one
 const Image = ({
   src,
   width,
@@ -30,7 +29,6 @@ const Image = ({
   />
 );
 
-// Replace Next.js Link with a custom one or use a regular anchor tag
 const Link = ({ href, className, children }) => (
   <a href={href} className={className}>
     {children}

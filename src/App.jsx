@@ -8,7 +8,7 @@ import {
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // import Filter from "./Pages/Prefrences/Filter";
-import RegistrationProcess from "./Pages/Register/RegisterProcess";
+import RegistrationProcess from "./Pages/Register/registerProcess";
 import { auth } from "@/lib/http.js";
 import CardsList from "./Pages/Discover/cardsList";
 
@@ -18,6 +18,7 @@ import Authentication from "./Pages/Auth/authentication";
 import PreferencesPage from "./Pages/Prefrences/preferencesPage";
 import MyActivity from "./Pages/Activity/myActivity";
 import Chat from "./Pages/Chat/chat";
+import SettingsPage from "./Pages/Setting/settingPage";
 
 
 
@@ -71,7 +72,7 @@ const router = createBrowserRouter([
       },
       {
         path: "settings",
-        element: <p>settings content</p>,
+        element: <SettingsPage/>,
       },
       {
         path: "/profile",
