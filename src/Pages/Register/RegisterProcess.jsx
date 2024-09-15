@@ -23,7 +23,6 @@ function CompleteRegistration() {
         ? auth.completeRoommateRegistration(data)
         : auth.completeApartmentRegistration(data),
     onSuccess: (data) => {
-      console.log("Registration completed successfully:", data);
       navigate("/");
     },
     onError: (error) => {

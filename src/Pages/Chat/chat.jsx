@@ -23,7 +23,6 @@ export default function Chat() {
 
   const handleSendMessage = () => {
     // Implement send message logic here
-    console.log('Sending message:', message);
     setMessage('');
   };
 

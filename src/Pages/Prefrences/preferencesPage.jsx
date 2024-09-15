@@ -41,7 +41,6 @@ export default function PreferencesPage() {
   const mutation = useMutation({
     mutationFn: users.preferences,
     onSuccess: (data) => {
-      console.log("Preferences were updated successfully:", data[userType]);
       setUser((prev) => ({
         ...prev,
         profile: {
@@ -69,8 +68,6 @@ export default function PreferencesPage() {
           return acc;
         }, {});
     }
-
-    console.log("Saving preferences:", preferencesToSave);
     mutation.mutate(preferencesToSave);
   };
 

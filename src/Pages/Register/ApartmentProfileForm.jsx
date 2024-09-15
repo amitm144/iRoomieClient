@@ -96,8 +96,6 @@ const ApartmentProfileForm = ({ onSubmit, initialData = {} }) => {
     ? `${initialData.info.location.address.street}, ${initialData.info.location.address.city}`
     : "";
 
-  console.log("Initial Data:", profile);
-
   const handleInputChange = (section, field, value) => {
     setProfile((prev) => ({
       ...prev,
