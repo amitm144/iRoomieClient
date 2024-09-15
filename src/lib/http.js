@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = process.env.API_URL;
 
 async function apiCall(endpoint, method = "GET", data = null, signal = null) {
   const url = `${BASE_URL}${endpoint}`;
