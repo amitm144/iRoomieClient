@@ -227,6 +227,10 @@ export const occupationList = [
   { title: "Firefighter", category: "Public Service & Safety" },
   { title: "Police Officer", category: "Public Service & Safety" },
   { title: "Pilot", category: "Transportation" },
+  { title: "Student", category: "Other" },
+  { title: "Solider", category: "Other" },
+  { title: "Unemployed", category: "Other" },
+  { title: "Retired", category: "Other" },
 ];
 
 export const musicGenresList = {

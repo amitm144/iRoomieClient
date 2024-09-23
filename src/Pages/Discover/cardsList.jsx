@@ -24,7 +24,7 @@ export default function CardsList() {
     onSuccess: (responseData, variables) => {
       queryClient.setQueryData(['suggestions'], (oldData) => {
         if (oldData) {
-          return oldData.filter(item => item.apartment._id !== responseData.removedId);
+          return oldData.filter(item => item[searchType]._id !== responseData.removedId);
         }
         return oldData;
       });
@@ -71,7 +71,7 @@ export default function CardsList() {
       </div>
       <main className="flex flex-col gap-8 lg:container">
         {sortedData.map((item, index) => (
-          <CardComponent key={item.apartment._id} data={item} myAnswers={myAnswers} onAction={handleAction} />
+          <CardComponent key={item[searchType]._id} data={item} myAnswers={myAnswers} onAction={handleAction} />
         ))}
       </main>
     </>

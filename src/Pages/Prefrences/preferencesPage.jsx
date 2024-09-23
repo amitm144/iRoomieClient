@@ -56,19 +56,23 @@ export default function PreferencesPage() {
   });
 
   const handleSave = async () => {
-    let preferencesToSave = Object.entries(preferences);
+    // let preferencesToSave = Object.entries(preferences);
+    // console.log("preferences", preferences);
 
-    if (userType === "roommate") {
-      preferencesToSave=  preferences;
-    } else {
-      preferencesToSave
-        .filter(([key, pref]) => pref.length > 0)
-        .reduce((acc, [key, pref]) => {
-          acc[key] = pref;
-          return acc;
-        }, {});
-    }
-    mutation.mutate(preferencesToSave);
+    // if (userType === "roommate") {
+    //   preferencesToSave=  preferences;
+    // } else {
+    //   // preferencesToSave
+    //   //   .filter(([key, pref]) => pref.length > 0)
+    //   //   .reduce((acc, [key, pref]) => {
+    //   //     acc[key] = pref;
+    //   //     return acc;
+    //   //   }, {});
+    //   //   console.log("preferencesToSave", preferencesToSave);
+    //   preferencesToSave=  preferences;
+
+    // }
+    mutation.mutate(preferences);
   };
 
   const handleReset = () => {
