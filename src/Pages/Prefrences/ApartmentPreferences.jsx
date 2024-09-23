@@ -1,4 +1,4 @@
-import { RangeSlider, MultiSelect } from "./PreferenceComponents";
+import { RangeSlider, MultiSelect } from "./preferenceComponents";
 import { Users } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { interestOptions, occupationOptions } from "@/lib/preferencesUtils";

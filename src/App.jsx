@@ -11,7 +11,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import RegistrationProcess from "./Pages/Register/registerProcess";
 import { auth } from "@/lib/http.js";
 import CardsList from "./Pages/Discover/cardsList";
-
 import MyProfile from "./Pages/MyProfile/myProfile";
 import SidebarDemo from "./Pages/Nav/sidebar";
 import Authentication from "./Pages/Auth/authentication";
@@ -19,9 +18,6 @@ import PreferencesPage from "./Pages/Prefrences/preferencesPage";
 import MyActivity from "./Pages/Activity/myActivity";
 import Chat from "./Pages/Chat/chat";
 import SettingsPage from "./Pages/Setting/settingPage";
-
-
-
 export const UserContext = createContext(null);
 
 const ProtectedRoute = ({ children }) => {

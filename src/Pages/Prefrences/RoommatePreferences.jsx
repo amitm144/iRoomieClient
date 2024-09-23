@@ -4,7 +4,7 @@ import {
   PreferenceSlider,
   AddressPreference,
   DateRangePicker,
-} from "./PreferenceComponents";
+} from "./preferenceComponents";
 import {
   Bed,
   Bath,
